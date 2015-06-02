@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     if User.exists?(params[:id])
       user = User.find(params[:id])
       render text: "#{user.first_name} #{user.last_name}, #{user.age}"
+    elsif params[:first_name]
+      starts_with = User.where("first_name LIKE ?", "#{params[:first_name]}%")
+      starts_with.each do |user|
+        puts "#{user.first_name} #{user.last_name} | #{user.age}"
+      end
     else
       render text: "User Not Found", status: 404
     end
