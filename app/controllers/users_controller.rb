@@ -19,3 +19,9 @@ class UsersController < ApplicationController
 
 end
 
+#   elsif params[:first_name]
+#
+#     starts_with = User.where("first_name LIKE ?", "#{params[:first_name]}%")
+#     starts_with.each do |user|
+#       render text: "#{user.first_name} #{user.last_name} | #{user.age}"
+#     end
